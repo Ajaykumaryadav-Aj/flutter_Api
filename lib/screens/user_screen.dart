@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_api/apis/api_sevice.dart';
-import 'package:flutter_api/models/firstmodel.dart';
+import 'package:flutter_api/models/user_model.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class UserScreen extends StatefulWidget {
+  const UserScreen({super.key});
 
   @override
-  _HomeState createState() => _HomeState();
+  State<UserScreen> createState() => _UserScreenState();
 }
 
-class _HomeState extends State<Home> {
-  late List<Welcome>? _userModel = [];
+class _UserScreenState extends State<UserScreen> {
+  late List<UserModel>? _userModel = [];
   @override
   void initState() {
     super.initState();
@@ -18,7 +18,7 @@ class _HomeState extends State<Home> {
   }
 
   void _getData() async {
-    _userModel = (await ApiService().getUsers())!;
+    _userModel = (await ApiService().getUsers());
     Future.delayed(const Duration(seconds: 1)).then((value) => setState(() {}));
   }
 
@@ -26,7 +26,8 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('REST API Example'),
+        title: const Text('User Screen Api '),
+        centerTitle: true,
       ),
       body: _userModel == null || _userModel!.isEmpty
           ? const Center(
@@ -42,7 +43,7 @@ class _HomeState extends State<Home> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Text(_userModel![index].id.toString()),
-                          Text(_userModel![index].username),
+                          Text(_userModel![index].email),
                         ],
                       ),
                       const SizedBox(
@@ -51,8 +52,8 @@ class _HomeState extends State<Home> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Text(_userModel![index].email),
                           Text(_userModel![index].name),
+                          Text(_userModel![index].phone),
                         ],
                       ),
                     ],
