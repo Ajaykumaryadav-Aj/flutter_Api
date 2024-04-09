@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter_api/constant.dart';
+import 'package:flutter_api/models/album_model.dart';
 import 'package:flutter_api/models/photo_model.dart';
 import 'package:flutter_api/models/user_model.dart';
 import 'package:http/http.dart' as http;
@@ -29,6 +30,23 @@ class PhotosService {
       var response = await http.get(url);
       if (response.statusCode == 200) {
         List<PhotoModel> model = photoModelFromJson(response.body);
+        log(response.body);
+        return model;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+}
+
+class AlbumService {
+  Future<List<AlbumModel>?> getAlbum() async {
+    try {
+      var url = Uri.parse(ApiConstant.albumUrl + ApiConstant.albumEndpoint);
+      var response = await http.get(url);
+      if (response.statusCode == 200) {
+        List<AlbumModel> model = albumModelFromJson(response.body);
         log(response.body);
         return model;
       }

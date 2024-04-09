@@ -30,31 +30,33 @@ class _PhotosScreenState extends State<PhotosScreen> {
           title: const Text('Photo Screen Api'),
           centerTitle: true,
         ),
-        body: _photosModel == null || _photosModel!.isEmpty
-            ? const Center(
-                child: CircularProgressIndicator(),
-              )
-            : ListView.builder(
-                itemCount: _photosModel!.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Container(
-                      decoration: const BoxDecoration(color: Colors.amber),
-                      height: 250,
-                      width: 200,
-                      child: Column(
-                        children: [
-                          Image.network(_photosModel![index].thumbnailUrl),
-                          Text(_photosModel![index].title),
-                          Text(_photosModel![index].albumId.toString()),
-                          Text(_photosModel![index].id.toString()),
-                          Text(_photosModel![index].url)
-                        ],
+        body: SafeArea(
+          child: _photosModel == null || _photosModel!.isEmpty
+              ? const Center(
+                  child: CircularProgressIndicator(),
+                )
+              : ListView.builder(
+                  itemCount: _photosModel!.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Container(
+                        decoration: const BoxDecoration(color: Colors.amber),
+                        height: 250,
+                        width: 200,
+                        child: Column(
+                          children: [
+                            Image.network(_photosModel![index].thumbnailUrl),
+                            Text(_photosModel![index].title),
+                            Text(_photosModel![index].albumId.toString()),
+                            Text(_photosModel![index].id.toString()),
+                            Text(_photosModel![index].url)
+                          ],
+                        ),
                       ),
-                    ),
-                  );
-                },
-              ));
+                    );
+                  },
+                ),
+        ));
   }
 }
