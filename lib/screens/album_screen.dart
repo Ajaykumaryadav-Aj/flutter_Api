@@ -42,7 +42,7 @@ class _AlbumScreenState extends State<AlbumScreen> {
                     Text(
                       _albumModel![index].id.toString(),
                     ),
-                    Text(_albumModel![index].id.toString())
+                    Text(_albumModel![index].userId.toString())
                   ],
                 );
               },

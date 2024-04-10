@@ -7,4 +7,7 @@ class ApiConstant {
 
   static String albumUrl = 'https://jsonplaceholder.typicode.com';
   static String albumEndpoint = '/albums';
+
+  static String postUrl = 'https://jsonplaceholder.typicode.com';
+  static String postEndpoint = '/posts';
 }

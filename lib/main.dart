@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_api/screens/album_screen.dart';
 import 'package:flutter_api/screens/photos_screen.dart';
+import 'package:flutter_api/screens/post_screen.dart';
 import 'package:flutter_api/screens/user_screen.dart';
 
 void main() {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const AlbumScreen(),
+      home: const PostScreen(),
     );
   }
 }
