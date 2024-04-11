@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_api/screens/album_screen.dart';
 import 'package:flutter_api/screens/photos_screen.dart';
 import 'package:flutter_api/screens/post_screen.dart';
 import 'package:flutter_api/screens/user_screen.dart';

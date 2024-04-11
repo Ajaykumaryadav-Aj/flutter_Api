@@ -31,7 +31,10 @@ class _PostScreenState extends State<PostScreen> {
       appBar: AppBar(
         title: const Text('Post Api Screen'),
       ),
-      body: ListView.builder(
+      body:
+      _postModel == null || _postModel!.isEmpty?
+      const Center(child: CircularProgressIndicator(),)
+      : ListView.builder(
         itemCount: _postModel!.length,
         itemBuilder: (context, index) {
           return Column(
