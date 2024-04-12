@@ -30,24 +30,26 @@ class _PostScreenState extends State<PostScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Post Api Screen'),
+        centerTitle: true,
       ),
-      body:
-      _postModel == null || _postModel!.isEmpty?
-      const Center(child: CircularProgressIndicator(),)
-      : ListView.builder(
-        itemCount: _postModel!.length,
-        itemBuilder: (context, index) {
-          return Column(
-            children: [
-              Text(_postModel![index].title),
-              const SizedBox(height: 15),
-              Text(_postModel![index].body),
-              const SizedBox(height: 15),
-              Text(_postModel![index].body.toString())
-            ],
-          );
-        },
-      ),
+      body: _postModel == null || _postModel!.isEmpty
+          ? const Center(
+              child: CircularProgressIndicator(),
+            )
+          : ListView.builder(
+              itemCount: _postModel!.length,
+              itemBuilder: (context, index) {
+                return Column(
+                  children: [
+                    Text(_postModel![index].title),
+                    const SizedBox(height: 15),
+                    Text(_postModel![index].body),
+                    const SizedBox(height: 15),
+                    Text(_postModel![index].body.toString())
+                  ],
+                );
+              },
+            ),
     );
   }
 }
